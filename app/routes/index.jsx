@@ -1,16 +1,30 @@
-import {json, useLoaderData} from 'remix'
+import { Link } from "remix";
+import stylesUrl from "../styles/index.css";
 
-export const loader = async () => {
-  return json({time: new Date()})
-}
+export const links = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: stylesUrl
+    }
+  ];
+};
 
-export default function IndexScreen() {
-  const {time} = useLoaderData()
+export default function Index() {
   return (
-    <div>
-      <h1>Welcome home!</h1>
-      <p>Not much to see here.</p>
-      <p>But this page was rendered at {time}.</p>
+    <div className="container">
+      <div className="content">
+        <h1>
+          Remix <span>Jokes!</span>
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="jokes">Read Jokes</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-  )
+  );
 }

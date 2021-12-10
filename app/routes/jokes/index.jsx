@@ -17,7 +17,10 @@ export default function JokesDefaultScreen() {
   )
 }
 
-export function ErrorBoundary({error}) {
-  console.error(error)
-  return <div>I did a whoopsies.</div>
+export function ErrorBoundary() {
+  return (
+    <div className="error-container">
+      I did a whoopsies.
+    </div>
+  );
 }
